@@ -1,6 +1,8 @@
 const addBookButton = document.querySelector('.add-book-button');
 const controlPanel = document.querySelector('.control-panel');
 
+const mainContent = document.querySelector('.main-content');
+
 
 let myLibrary = []; 
 
@@ -13,6 +15,34 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(array, book) {
     array.push(book);    
+};
+
+function displayLibrary(library) {
+    let cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.remove();
+    });
+
+    for (let book in library) {
+        let card = document.createElement('div');
+        card.classList.add('card');
+
+        let cardContentTitle = document.createElement('h3');
+        let cardContentAuthor = document.createElement('p');
+        let cardContentPages = document.createElement('p');
+        let cardContentRead = document.createElement('p');
+
+        mainContent.appendChild(card);
+        card.appendChild(cardContentTitle);
+        card.appendChild(cardContentAuthor);
+        card.appendChild(cardContentPages);
+        cardContentTitle.textContent = `${library[book].title}`;
+        cardContentAuthor.textContent = `${library[book].author}`;
+        cardContentPages.textContent = `${library[book].pages} pages`;
+        
+
+
+    };
 };
 
 
@@ -78,8 +108,10 @@ addBookButton.addEventListener('click', () => {
         addBookToLibrary(myLibrary, book);
         // console.log(book);
         // console.log(myLibrary);
-        form.remove();
-        controlPanel.appendChild(addBookButton);
+        // form.remove();
+        // controlPanel.appendChild(addBookButton);
+        displayLibrary(myLibrary);
+        form.reset();
     });
 
 });
