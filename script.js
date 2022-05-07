@@ -39,6 +39,11 @@ function displayLibrary(library) {
         trashIcon.setAttribute('src', './icons8-square-30.png');
         trashIcon.classList.add('trash');
 
+        trashIcon.addEventListener('click', () => {
+            myLibrary.splice(book, 1);
+            displayLibrary(myLibrary);
+        });
+
         
         mainContent.appendChild(card);
         card.appendChild(trashIcon);
@@ -71,6 +76,8 @@ function displayLibrary(library) {
                 cardContentRead.textContent = 'Read';
             };
         });
+
+        
 
     };
 };
