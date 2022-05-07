@@ -26,13 +26,20 @@ function displayLibrary(library) {
     for (let book in library) {
         let card = document.createElement('div');
         card.classList.add('card');
+        card.setAttribute('id', 'card' + book);
 
         let cardContentTitle = document.createElement('h3');
         let cardContentAuthor = document.createElement('p');
         let cardContentPages = document.createElement('p');
         let cardContentRead = document.createElement('p');
+        let trashIcon = document.createElement('img');
 
+        trashIcon.setAttribute('src', './icons8-square-30.png');
+        trashIcon.classList.add('trash');
+
+        
         mainContent.appendChild(card);
+        card.appendChild(trashIcon);
         card.appendChild(cardContentTitle);
         card.appendChild(cardContentAuthor);
         card.appendChild(cardContentPages);
