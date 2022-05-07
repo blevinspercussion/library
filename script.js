@@ -34,6 +34,8 @@ function displayLibrary(library) {
         let cardContentRead = document.createElement('p');
         let trashIcon = document.createElement('img');
 
+
+
         trashIcon.setAttribute('src', './icons8-square-30.png');
         trashIcon.classList.add('trash');
 
@@ -43,11 +45,32 @@ function displayLibrary(library) {
         card.appendChild(cardContentTitle);
         card.appendChild(cardContentAuthor);
         card.appendChild(cardContentPages);
+        card.appendChild(cardContentRead);
         cardContentTitle.textContent = `${library[book].title}`;
         cardContentAuthor.textContent = `${library[book].author}`;
         cardContentPages.textContent = `${library[book].pages} pages`;
-        
 
+        cardContentRead.classList.add('read');
+
+        if (library[book].read) {
+            cardContentRead.textContent = 'Read';
+            cardContentRead.classList.add('yes-read');
+        } else {
+            cardContentRead.textContent = 'Not Read';
+            cardContentRead.classList.add('not-read');
+        };
+
+        cardContentRead.addEventListener('click', () => {
+            if (cardContentRead.classList.contains('yes-read')) {
+                cardContentRead.classList.remove('yes-read');
+                cardContentRead.classList.add('not-read');
+                cardContentRead.textContent = 'Not Read';
+            } else {
+                cardContentRead.classList.remove('not-read');
+                cardContentRead.classList.add('yes-read');
+                cardContentRead.textContent = 'Read';
+            };
+        });
 
     };
 };

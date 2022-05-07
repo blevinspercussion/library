@@ -52,3 +52,18 @@ form {
     top: 10px;
     right: 10px;
 }
+
+.read {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.yes-read {
+    background-color: rgb(63, 123, 63);
+
+}
+
+.not-read {
+    background-color: rgb(150, 70, 70);
+
+}
