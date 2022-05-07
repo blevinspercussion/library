@@ -1,0 +1,19 @@
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 4fr;
+}
+
+.header {
+    background-color: rgb(222, 222, 222);
+}
+
+.sidebar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    background-color: rgb(181, 181, 181);
+}
+
+.main-content {
+
+}
