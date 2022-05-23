@@ -54,16 +54,27 @@ form {
 }
 
 .read {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 5px;
     border-radius: 5px;
+
 }
 
 .yes-read {
     background-color: rgb(63, 123, 63);
+    transition: 0.3s;
+    width: 75px;
 
 }
 
 .not-read {
     background-color: rgb(150, 70, 70);
+    transition: 0.3s;
+    width: 75px;
+}
 
+input:invalid {
+    border-color: red;
 }
